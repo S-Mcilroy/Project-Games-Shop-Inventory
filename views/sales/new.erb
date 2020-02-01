@@ -1,0 +1,16 @@
+<h1>Add Sale</h1>
+
+
+  <form method="post" action="/sales">
+    <label for="transaction_date">Transaction Date:</label>
+    <input id="transaction_date" type="date" name="transaction_date" required/>
+
+    <label for="game">Select a Game:</label>
+    <select id="game_id" name="game_id" required>
+    <% @games.each do |game| %>
+      <option value = <%= game.id %> > <%= game.name %> </option>
+      <% end %>
+    </select>
+
+    <input type='submit' value="Add Sale"/>
+  </form>

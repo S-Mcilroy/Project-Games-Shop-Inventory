@@ -1,0 +1,15 @@
+<h1>Update Publisher</h1>
+
+
+  <form method="post" action="/publisher/<%=@publisher.id%>">
+    <label for="name">Name:</label>
+    <input id="name" type="text" name="name" value="<%=@publisher.name%>" required/>
+
+    <label for="trading">Trading:</label>
+    <select id="trading" name="trading" required>
+      <option <%= "selected" if @publisher.trading == "Yes" %> value = "Yes">Yes</option>
+      <option <%= "selected" if @publisher.trading == "No" %> value = "No">No</option>
+    </select>
+
+    <input type='submit' value="Update Publisher"/>
+  </form>

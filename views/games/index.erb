@@ -1,0 +1,22 @@
+<h1>Games</h1>
+<a href="/games/new">Add New Game</a>
+
+<hr>
+<% @games.each do |game| %>
+<p>Name: <%= game.name() %></p>
+<p>Genre: <%= game.genre %></p>
+<p>Publisher: <%= game.publisher[0].name %></p>
+<br>
+<p>Buy Price: <%= game.buy_price %></p>
+<p>Sell Price: <%= game.sell_price %></p>
+<p>Stock: <%= game.stock %></p>
+
+<form method="post" action="/games/<%= game.id%>/delete">
+  <input type='submit' value="Delete Game"/>
+</form>
+
+<form method="get" action="/games/<%= game.id %>/update">
+  <input type='submit' value='Update Game'/>
+</form>
+<hr>
+<% end %>
