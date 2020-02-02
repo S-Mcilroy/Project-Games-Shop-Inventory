@@ -5,10 +5,7 @@
 <% @games.each do |game| %>
 <p>Name: <%= game.name() %></p>
 <p>Genre: <%= game.genre %></p>
-<p>Publisher: <%= game.publisher[0].name %></p>
-<br>
-<p>Buy Price: <%= game.buy_price %></p>
-<p>Sell Price: <%= game.sell_price %></p>
+<p>Publisher: <%= game.publisher.name %></p>
 <p>Stock: <%= game.stock %></p>
 
 <form method="post" action="/games/<%= game.id%>/delete">

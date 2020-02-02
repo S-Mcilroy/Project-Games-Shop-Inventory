@@ -1,0 +1,20 @@
+<img src="/images/GG_Games_Logo.png" alt="">
+
+<table>
+  <h1>Items Low Stock/Out of Stock</h1>
+  <tr>
+    <th>Game</th>
+    <th>|</th>
+    <th>Stock Level</th>
+  </tr>
+  <% for game in @games %>
+  <% if game.stock <= 5%>
+  <tr>
+    <td><%= game.name%></td>
+    <td>|</td>
+    <td><%= game.stock%> </td>
+  </tr>
+  <% end %>
+  <% end %>
+
+</table>

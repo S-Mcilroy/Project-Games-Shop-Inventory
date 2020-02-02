@@ -1,0 +1,57 @@
+<h1>Inventory</h1>
+
+  <form method="get" action="/inventory/filter/publisher">
+    <select id="id" name="id" required>
+      <% @publishers.each do |publisher| %>
+      <option value = <%= publisher.id %> > <%= publisher.name %> </option>
+      <% end %>
+    <input type='submit' value="Filter by Publisher"/>
+  </form>
+
+  <form method="get" action="/inventory/filter/genre">
+    <select id="genre" name="genre" required>
+      <option value = "Action">Action</option>
+      <option value = "Roleplaying">Roleplaying</option>
+      <option value = "Adventure">Adventure</option>
+      <option value = "Strategy">Strategy</option>
+      <option value = "Puzzle">Puzzle</option>
+    <input type='submit' value="Filter by Genre"/>
+  </form>
+
+
+<table>
+  <tr>
+    <th>Game</th>
+    <th>|</th>
+    <th>Genre</th>
+    <th>|</th>
+    <th>Publisher</th>
+    <th>|</th>
+    <th>Stock</th>
+    <th>|</th>
+    <th>Buy Price</th>
+    <th>|</th>
+    <th>Sell Price</th>
+    <th>|</th>
+    <th>Mark Up Rate</th>
+  </tr>
+  <% for game in @games %>
+  <% publisher = game.publisher %>
+  <tr>
+    <td><%= game.name%> </td>
+    <td>|</td>
+    <td><%= game.genre%></td>
+    <td>|</td>
+    <td><%= publisher.name if game.publisher_id == publisher.id%></td>
+    <td>|</td>
+    <td><%= game.stock%> </td>
+    <td>|</td>
+    <td><%= game.buy_price %></td>
+    <td>|</td>
+    <td><%= game.sell_price %></td>
+    <td>|</td>
+    <td><%= ((game.buy_price.to_f / game.sell_price.to_f)*100).round(2) %>%</td>
+  </tr>
+  <% end %>
+
+</table>

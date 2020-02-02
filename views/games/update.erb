@@ -5,13 +5,6 @@
     <label for="name">Name:</label>
     <input id="name" type="text" name="name" value="<%=@games.name%>"" required/>
 
-    <label for="publisher">Select a Publisher:</label>
-    <select id="publisher_id" name="publisher_id" required>
-    <% @publishers.each do |publisher| %>
-      <option <%= "selected" if @games.publisher_id == publisher.id  %> value = <%= publisher.id %> > <%= publisher.name %> </option>
-      <% end %>
-    </select>
-
     <label for="genre">Genre:</label>
     <select id="genre" name="genre" required>
       <option <%= "selected" if @games.genre == "Action" %> value = "Action">Action</option>
@@ -29,6 +22,13 @@
 
     <label for="stock">Stock:</label>
     <input id="stock" type="number" name="stock" value =<%= @games.stock %> min="0" required/>
+
+    <label for="publisher">Select a Publisher:</label>
+    <select id="publisher_id" name="publisher_id" required>
+    <% @publishers.each do |publisher| %>
+      <option <%= "selected" if @games.publisher_id == publisher.id  %> value = <%= publisher.id %> > <%= publisher.name %> </option>
+      <% end %>
+    </select>
 
     <input type='submit' value="Update Game"/>
   </form>

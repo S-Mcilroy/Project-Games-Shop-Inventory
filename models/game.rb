@@ -56,7 +56,7 @@ class Game
     sql = "SELECT publishers.* FROM publishers WHERE id = $1"
     values = [@publisher_id]
     result = SqlRunner.run(sql, values)
-    return result.map{|publisher| Publisher.new(publisher)}
+    return Publisher.new(result.first)
   end
 
   def sales()
