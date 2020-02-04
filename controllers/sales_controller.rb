@@ -8,6 +8,7 @@ also_reload( '../models/*' )
 
 get '/sales' do
   @sales = Sale.all
+  @publishers = Publisher.all
   erb( :"sales/index" )
 end
 
@@ -41,7 +42,20 @@ get '/sales/:id/update' do
 end
 
 post '/sales/:id' do
+
   sale = Sale.new(params)
   sale.update
   redirect to('/sales')
+end
+
+get '/sales/filter/publisher' do
+  @sales = Sale.all
+  @filter = Publisher.find(params[:id])
+  erb(:"sales/filter/publisher")
+end
+
+get '/sales/filter/genre' do
+  @sales = Sale.all
+  @filter = params[:genre]
+  erb(:"sales/filter/genre")
 end

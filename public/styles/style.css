@@ -1,3 +1,7 @@
+h1 {
+  font-family: 'Bungee Inline', cursive;
+}
+
 nav {
   background: blue;
   border-right: solid black;
@@ -8,14 +12,13 @@ nav {
   top: 0;
   left: 0;
   overflow-x: hidden;
-  padding-top: 120px;
-  padding-right: 67px;
-  padding-left: 40px;
+  padding-top: 200px;
+
 }
 nav li {
-  margin: 1px 0;
   text-align: center;
   display: inline;
+  font-family: 'Bungee Inline', cursive;
 }
 
 nav li a {
@@ -24,6 +27,10 @@ nav li a {
   width: 100%;
   text-decoration: none;
   color: white;
+  padding-right: 105px;
+  padding-left: 1px;
+  text-align: left;
+
 }
 
 nav li a:hover{
@@ -36,15 +43,16 @@ nav li a:hover{
   z-index: 2;
   display: flex;
   position: fixed;
-  height: 15%;
-  width: 15%;
+  height: 25%;
+  width: 18%;
   border: black solid 2px;
 }
 
 #content {
   float: left;
-  width: 77%;
-  padding-left: 220px;
+  width: 82.3%;
+  padding-left: 255px;
+  padding-top: 35px;
 }
 
 table {
@@ -53,7 +61,6 @@ table {
 
 table, th, td {
   border: 1px solid black;
-  background-color: ivory;
   font-size: 20px;
   padding: 5px;
 }
@@ -64,11 +71,13 @@ table, th, td {
 
 input, select {
   display: block;
+  text-align: center;
 }
+
 
 #form_inline{
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 #form_inventory{
@@ -87,13 +96,13 @@ input, select {
 
 .image_resize {
   z-index: 2;
+  float: left;
   display: block;
-  float: right;
-  width: 20%;
-  height: 20%;
-  object-fit: contain;
-  border-top: solid black 1px;
-  padding-bottom: 10px;
+  width:  200px;
+  height: 200px;
+  background-size: cover;
+  border-bottom: 1px black solid;
+  border-right: 1px black solid;
 }
 
 form {
@@ -126,24 +135,51 @@ h1 {
 
 .container_inside{
   display: block;
+  align-content: center;
   padding-left: 10px;
-  padding-right: 150px;
   border-right: solid black 1px;
   border-bottom: solid  black 1px;
-  width: 15.31%;
+  width: 31.91%;
   padding-bottom: 10px;
+  font-size: 16px;
 }
 
 .btn_add {
-  border-top: red 5px solid;
-  border-bottom: red 5px solid;
-  border-left: red 5px solid;
-  border-right: red 5px solid;
   padding: 5px;
   background: blue;
   color: white;
-  text-decoration: none;
+  text-decoration: double underline;
   border-radius: 20px;
+  font-family: 'Bungee Inline', cursive;
+  text-align: center;
+  padding-top: 25px;
+  padding-right: 10px;
+  font-size: 20px;
+}
+
+.btn_add_form{
+  border: none;
+  padding: none;
+  background: blue;
+  color: white;
+  text-decoration: double underline;
+  font-family: 'Bungee Inline', cursive;
+  text-align: center;
+  top: 0;
+  font-size: 20px;
+}
+
+.btn_add_form_filter{
+  border: none;
+  padding: none;
+  background: blue;
+  color: white;
+  text-decoration: double underline;
+  font-family: 'Bungee Inline', cursive;
+  text-align: center;
+  top: 0;
+  padding-top: 25px;
+  font-size: 20px;
 }
 
 #stock_check{
@@ -151,6 +187,7 @@ h1 {
   flex-flow: row wrap;
   justify-content: center;
   padding-bottom: 20px;
+  padding-top: 30px;
   text-align: center;
 }
 
@@ -158,4 +195,42 @@ h1 {
   display: flex;
   justify-content: center;
   background: white;
+}
+
+.header{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 100;
+  width: 81.01%;
+  background: blue;
+  top: 0;
+  border: black 5px solid;
+}
+
+.header_text{
+    padding-left: 20px;
+    color: white;
+}
+
+.inventory_table{
+  width: 100.5%;
+}
+
+.game_button_inline{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.internal_form{
+  padding-top: 50px;
+  padding-left: 10px;
+}
+
+.filter_select{
+  display: block;
+  align-self: center;
+  height: 50%;
+  font-size: 15px;
 }

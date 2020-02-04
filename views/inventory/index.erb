@@ -1,28 +1,29 @@
-<h1>Inventory</h1>
+<div class="header">
+<h1 class="header_text">Inventory</h1>
 
   <form id = "form_inventory" method="get" action="/inventory/filter/publisher">
-    <select id="id" name="id" required>
+    <select class ="filter_select" id="id" name="id" required>
       <% @publishers.each do |publisher| %>
       <option value = <%= publisher.id %> > <%= publisher.name %> </option>
       <% end %>
-    <input type='submit' value="Filter by Publisher"/>
+    <input class = "btn_add_form" type='submit' value="Filter by Publisher"/>
   </form>
 
   <form id = "form_inventory" method="get" action="/inventory/filter/genre">
-    <select id="genre" name="genre" required>
+    <select class ="filter_select" id="genre" name="genre" required>
       <option value = "Action">Action</option>
       <option value = "Roleplaying">Roleplaying</option>
       <option value = "Adventure">Adventure</option>
       <option value = "Strategy">Strategy</option>
       <option value = "Puzzle">Puzzle</option>
-    <input type='submit' value="Filter by Genre"/>
+    <input class = "btn_add_form" type='submit' value="Filter by Genre"/>
   </form>
-
+</div>
 <br>
 <br>
 
 
-<table>
+<table class = "inventory_table">
   <tr>
     <th>Game</th>
     <th>Genre</th>

@@ -1,7 +1,8 @@
-<h1>Update Publisher</h1>
+<div class="header">
+<h1 class="header_text">Update Publisher</h1>
+</div>
 
-
-  <form method="post" action="/publishers/<%=@publisher.id%>">
+  <form class="internal_form" method="post" action="/publishers/<%=@publisher.id%>">
     <label for="name">Name:</label>
     <input id="name" type="text" name="name" value="<%=@publisher.name%>" required/>
     <br>

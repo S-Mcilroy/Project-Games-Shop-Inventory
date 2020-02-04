@@ -1,36 +1,39 @@
-<h1>Games</h1>
-<a class = "btn_add" href="/games/new">Add New Game</a>
+<div class="header">
+  <h1 class="header_text">Games</h1>
+  <a class = "btn_add" href="/games/new">Add Game</a>
+</div>
 <br>
 <br>
 <div class="container">
-<% @games.each do |game| %>
-<% if game.logo == "" %>
-<img class = "image_resize" src="/images/no_image.png" alt="No Image">
-<% else %>
-<img class = "image_resize" src="<%=game.logo%>" alt="Game Logo">
-<% end %>
-<div class="container_inside">
+  <% @games.each do |game| %>
+  <% if game.logo == "" %>
+  <img class = "image_resize" src="/images/no_image.png" alt="No Image">
+  <% else %>
+  <img class = "image_resize" src="<%=game.logo%>" alt="Game Logo">
+  <% end %>
+  <div class="container_inside">
 
-<p>Name: <%= game.name() %></p>
-<p>Genre: <%= game.genre %></p>
-<p>Publisher: <%= game.publisher.name %></p>
-<% if game.stock == 0%>
-  <p id ="warning">Stock: <%= game.stock%> </p>
-<% elsif game.stock <= 5 %>
-  <p id ="lowstock">Stock: <%= game.stock%> </p>
-<% else %>
-<p>Stock: <%= game.stock %></p>
-<% end %>
+    <p>Name: <%= game.name() %></p>
+    <p>Genre: <%= game.genre %></p>
+    <p>Publisher: <%= game.publisher.name %></p>
+    <% if game.stock == 0%>
+    <p id ="warning">Stock: <%= game.stock%> </p>
+    <% elsif game.stock <= 5 %>
+    <p id ="lowstock">Stock: <%= game.stock%> </p>
+    <% else %>
+    <p>Stock: <%= game.stock %></p>
+    <% end %>
 
+    <div class="game_button_inline">
+      <form method="post" action="/games/<%= game.id%>/delete">
+        <input type='submit' value="Delete Game"/>
+      </form>
 
-<form method="post" action="/games/<%= game.id%>/delete">
-  <input type='submit' value="Delete Game"/>
-</form>
+      <form method="get" action="/games/<%= game.id %>/update">
+        <input type='submit' value='Update Game'/>
+      </form>
+    </div>
+  </div>
 
-<form method="get" action="/games/<%= game.id %>/update">
-  <input type='submit' value='Update Game'/>
-</form>
-</div>
-
-<% end %>
+  <% end %>
 </div>

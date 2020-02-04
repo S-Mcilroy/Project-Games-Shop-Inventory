@@ -1,27 +1,31 @@
-<h1>Publishers</h1>
-<a class = "btn_add" href="/publishers/new">Add New Publisher</a>
+<div class="header">
+  <h1 class="header_text" >Publishers</h1>
+  <a class = "btn_add" href="/publishers/new">Add Publisher</a>
+</div>
+
 <br>
 <br>
 <div class="container">
-<% @publishers.each do |publisher| %>
-<% if publisher.logo == "" %>
-<img class = "image_resize" src="/images/no_image.png" alt="No Image">
-<% else %>
-<img class = "image_resize" src="<%=publisher.logo%>" alt="Publisher Logo">
-<% end %>
-<div class="container_inside">
-<p>Name: <%= publisher.name() %></p>
-<p>Trading: <%= publisher.trading %></p>
+  <% @publishers.each do |publisher| %>
+  <% if publisher.logo == "" %>
+  <img class = "image_resize" src="/images/no_image.png" alt="No Image">
+  <% else %>
+  <img class = "image_resize" src="<%=publisher.logo%>" alt="Publisher Logo">
+  <% end %>
+  <div class="container_inside">
+    <p>Name: <%= publisher.name() %></p>
+    <p>Trading: <%= publisher.trading %></p>
 
-<br>
-<form method="post" action="/publishers/<%= publisher.id%>/delete">
-  <input type='submit' value="Delete Publisher"/>
-</form>
+<div class="game_button_inline">
+    <form method="post" action="/publishers/<%= publisher.id%>/delete">
+      <input type='submit' value="Delete Publisher"/>
+    </form>
 
-<form method="get" action="/publishers/<%= publisher.id %>/update">
-  <input type='submit' value='Update Publisher'/>
-</form>
-</div>
+    <form method="get" action="/publishers/<%= publisher.id %>/update">
+      <input type='submit' value='Update Publisher'/>
+    </form>
+    </div>
+  </div>
 
-<% end %>
+  <% end %>
 </div>

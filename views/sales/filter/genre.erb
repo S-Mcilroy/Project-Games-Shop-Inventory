@@ -1,0 +1,41 @@
+<div class="header">
+<h1 class="header_text">Sales Filtered by: <%=@filter%></h1>
+
+<form method="get" action="/sales">
+  <input class = "btn_add_form_filter" type='submit' value="Clear Filter"/>
+</form>
+</div>
+
+<br>
+<br>
+<table class="inventory_table">
+  <tr>
+    <th>Game</th>
+    <th class = "filter">Genre</th>
+    <th>Publisher</th>
+    <th>Transaction Date</th>
+    <th>Price</th>
+    <th>Action</th>
+  </tr>
+
+
+  <% for sale in @sales %>
+  <% game = sale.game %>
+  <% if game.genre == @filter %>
+  <tr>
+    <td><%= game.name if sale.game_id == game.id%></td>
+    <td><%= game.genre %></td>
+    <td><%= game.publisher.name %></td>
+    <td><%= sale.transaction_date%> </td>
+    <td><%= game.sell_price%> </td>
+    <td id = "form_inline"><form method="post" action="/sales/<%= sale.id%>/delete">
+      <input type='submit' value="Delete"/>
+    </form>
+    <form method="get" action="/sales/<%= sale.id %>/update">
+      <input type='submit' value='Update'/>
+    </form></td>
+  </tr>
+  <% end %>
+  <% end %>
+
+</table>

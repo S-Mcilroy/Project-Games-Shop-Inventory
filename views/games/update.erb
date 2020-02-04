@@ -1,6 +1,8 @@
-<h1>Edit Game</h1>
+<div class="header">
+<h1 class="header_text">Edit Game</h1>
+</div>
 
-<form method="post" action="/games/<%=@games.id%>">
+<form class="internal_form" method="post" action="/games/<%=@games.id%>">
 
   <label for="name">Name:</label>
   <input id="name" type="text" name="name" value="<%=@games.name%>"" required/>
@@ -40,6 +42,6 @@
   <input id="logo" type="text" name="logo" value= "<%= @games.logo %>"/>
   <br>
   <br>
-  
+
   <input type='submit' value="Update Game"/>
 </form>

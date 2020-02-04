@@ -1,10 +1,16 @@
-<h1>Inventory Filtered by: <%=@filter.name%></h1>
+<div class="header">
+
+
+<h1 class="header_text">Inventory Filtered by: <%=@filter.name%></h1>
 
 <form method="get" action="/inventory">
-  <input type='submit' value="Clear Filter"/>
+  <input class ="btn_add_form_filter" type='submit' value="Clear Filter"/>
 </form>
+</div>
+
 <br>
-<table>
+<br>
+<table class = "inventory_table">
   <tr>
     <th>Game</th>
     <th>Genre</th>

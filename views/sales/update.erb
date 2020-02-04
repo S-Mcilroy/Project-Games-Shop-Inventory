@@ -1,7 +1,8 @@
-<h1>Update Sale</h1>
+<div class="header">
+<h1 class="header_text">Update Sale</h1>
+</div>
 
-
-  <form method="post" action="/sales">
+  <form class="internal_form" method="post" action="/sales">
     <label for="transaction_date">Transaction Date:</label>
     <input id="transaction_date" type="date" name="transaction_date" value =<%=@sale.transaction_date%> max = <%= Date.today %> required/>
 
