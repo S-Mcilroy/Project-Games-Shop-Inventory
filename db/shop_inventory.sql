@@ -5,7 +5,8 @@ DROP TABLE publishers;
 CREATE TABLE publishers(
   id SERIAL PRIMARY KEY,
   name VARCHAR(255),
-  trading VARCHAR(255)
+  trading VARCHAR(255),
+  logo VARCHAR(255)
 );
 
 CREATE TABLE games(
@@ -15,7 +16,8 @@ CREATE TABLE games(
   genre VARCHAR(255),
   buy_price DECIMAL(5, 2),
   sell_price DECIMAL(5, 2),
-  stock INT
+  stock INT,
+  logo VARCHAR
 );
 
 CREATE TABLE sales(

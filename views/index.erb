@@ -1,20 +1,27 @@
-<img src="/images/GG_Games_Logo.png" alt="">
 
-<table>
-  <h1>Items Low Stock/Out of Stock</h1>
+<div id="stock_check">
+<h1 id = "center_text">Items Low Stock/Out of Stock</h1>
+
+<div id = "center_table">
+
+<table >
   <tr>
     <th>Game</th>
-    <th>|</th>
     <th>Stock Level</th>
   </tr>
   <% for game in @games %>
-  <% if game.stock <= 5%>
+  <% if game.stock == 0%>
   <tr>
     <td><%= game.name%></td>
-    <td>|</td>
-    <td><%= game.stock%> </td>
+    <td id ="warning"><%= game.stock%> </td>
+  </tr>
+  <% elsif game.stock <= 5 %>
+  <tr>
+    <td><%= game.name%></td>
+    <td id ="lowstock"><%= game.stock%> </td>
   </tr>
   <% end %>
   <% end %>
-
 </table>
+</div>
+</div>

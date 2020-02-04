@@ -1,5 +1,6 @@
 require( 'sinatra' )
 require( 'sinatra/contrib/all' )
+require( 'date' )
 require_relative('../models/game.rb')
 require_relative('../models/publisher.rb')
 require_relative('../models/sale.rb')
@@ -18,12 +19,18 @@ end
 post '/sales' do
   sale = Sale.new(params)
   sale.save
+  game = sale.game
+  game.stock -= 1
+  game.update
   redirect to ('/sales')
 end
 
 post '/sales/:id/delete' do
   sales = Sale.find(params[:id])
   sales.delete()
+  game = sales.game
+  game.stock += 1
+  game.update
   redirect to('/sales')
 end
 

@@ -3,7 +3,7 @@
 
   <form method="post" action="/sales">
     <label for="transaction_date">Transaction Date:</label>
-    <input id="transaction_date" type="date" name="transaction_date" value =<%=@sale.transaction_date%> required/>
+    <input id="transaction_date" type="date" name="transaction_date" value =<%=@sale.transaction_date%> max = <%= Date.today %> required/>
 
     <label for="game">Select a Game:</label>
     <select id="game_id" name="game_id" required>
@@ -11,6 +11,6 @@
       <option <%= "selected" if game.id == @sale.game_id  %> value = <%= game.id %> > <%= game.name %> </option>
       <% end %>
     </select>
-
+    <br>
     <input type='submit' value="Add Sale"/>
   </form>

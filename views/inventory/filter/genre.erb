@@ -3,38 +3,26 @@
 <form method="get" action="/inventory">
   <input type='submit' value="Clear Filter"/>
 </form>
-
+<br>
 <table>
   <tr>
     <th>Game</th>
-    <th>|</th>
-    <td>Genre</td>
-    <td>|</td>
+    <th class = "filter">Genre</th>
     <th>Publisher</th>
-    <th>|</th>
     <th>Stock</th>
-    <th>|</th>
     <th>Buy Price</th>
-    <th>|</th>
     <th>Sell Price</th>
-    <th>|</th>
     <th>Mark Up Rate</th>
   </tr>
   <% for game in @games %>
   <% if game.genre == @filter %>
   <tr>
     <td><%= game.name%> </td>
-    <td>|</td>
     <td><%= game.genre%></td>
-    <td></td>
     <td><%= game.publisher.name%></td>
-    <td>|</td>
     <td><%= game.stock%> </td>
-    <td>|</td>
     <td><%= game.buy_price %></td>
-    <td>|</td>
     <td><%= game.sell_price %></td>
-    <td>|</td>
     <td><%= ((game.buy_price.to_f / game.sell_price.to_f)*100).round(2) %>%</td>
   </tr>
   <% end %>

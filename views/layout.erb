@@ -2,32 +2,33 @@
 <html>
 <head>
   <title>GG Games Store Inventory</title>
-  <link rel="stylesheet" href="/styles/tables.css">
+  <link rel="stylesheet" href="/styles/style.css">
 </head>
 <body>
-<main class="flex flex--row">
-  <nav>
-    <ul>
-      <li>
-        <a href="/">Home</a>
-      </li>
-      <li>
-        <a href="/publishers">Publishers</a>
-      </li>
-      <li>
-        <a href="/games">Games</a>
-      </li>
-      <li>
-        <a href="/sales">Sales</a>
-      </li>
-      <li>
-        <a href="/inventory">Inventory</a>
-      </li>
-    </ul>
-  </nav>
-  <section id="content">
-  <%= yield %>
-  </section>
+  <main>
+<img id ="company_logo" src="/images/GG_Games_Logo.png" alt="Company Logo">
+      <nav>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/publishers">Publishers</a>
+          </li>
+          <li>
+            <a href="/games">Games</a>
+          </li>
+          <li>
+            <a href="/sales">Sales</a>
+          </li>
+          <li>
+            <a href="/inventory">Inventory</a>
+          </li>
+        </ul>
+      </nav>
+    <section id="content">
+      <%= yield %>
+    </section>
   </main>
 </body>
 </html>

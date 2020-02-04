@@ -2,33 +2,44 @@
 
 <form method="post" action="/games/<%=@games.id%>">
 
-    <label for="name">Name:</label>
-    <input id="name" type="text" name="name" value="<%=@games.name%>"" required/>
+  <label for="name">Name:</label>
+  <input id="name" type="text" name="name" value="<%=@games.name%>"" required/>
+  <br>
 
-    <label for="genre">Genre:</label>
-    <select id="genre" name="genre" required>
-      <option <%= "selected" if @games.genre == "Action" %> value = "Action">Action</option>
-      <option <%= "selected" if @games.genre == "Roleplaying" %> value = "Roleplaying">Roleplaying</option>
-      <option <%= "selected" if @games.genre == "Adventure" %> value = "Adventure">Adventure</option>
-      <option <%= "selected" if @games.genre == "Strategy" %> value = "Strategy">Strategy</option>
-      <option <%= "selected" if @games.genre == "Puzzle" %> value = "Puzzle">Puzzle</option>
-    </select>
-
-    <label for="buy_price">Buy Price:</label>
-    <input id="buy_price" type="number" pattern="[0-9]*" name="buy_price" value =<%= @games.buy_price %> step="0.01" min="0" required/>
-
-    <label for="sell_price">Sell Price:</label>
-    <input id="sell_price" type="number" pattern="[0-9]*" name="sell_price" value =<%= @games.sell_price%> step="0.01" min="0" required/>
-
-    <label for="stock">Stock:</label>
-    <input id="stock" type="number" name="stock" value =<%= @games.stock %> min="0" required/>
-
-    <label for="publisher">Select a Publisher:</label>
-    <select id="publisher_id" name="publisher_id" required>
+  <label for="publisher">Select a Publisher:</label>
+  <select id="publisher_id" name="publisher_id" required>
     <% @publishers.each do |publisher| %>
-      <option <%= "selected" if @games.publisher_id == publisher.id  %> value = <%= publisher.id %> > <%= publisher.name %> </option>
-      <% end %>
-    </select>
+    <option <%= "selected" if @games.publisher_id == publisher.id  %> value = <%= publisher.id %> > <%= publisher.name %> </option>
+    <% end %>
+  </select>
+  <br>
 
-    <input type='submit' value="Update Game"/>
-  </form>
+  <label for="genre">Genre:</label>
+  <select id="genre" name="genre" required>
+    <option <%= "selected" if @games.genre == "Action" %> value = "Action">Action</option>
+    <option <%= "selected" if @games.genre == "Roleplaying" %> value = "Roleplaying">Roleplaying</option>
+    <option <%= "selected" if @games.genre == "Adventure" %> value = "Adventure">Adventure</option>
+    <option <%= "selected" if @games.genre == "Strategy" %> value = "Strategy">Strategy</option>
+    <option <%= "selected" if @games.genre == "Puzzle" %> value = "Puzzle">Puzzle</option>
+  </select>
+  <br>
+
+  <label for="buy_price">Buy Price:</label>
+  <input id="buy_price" type="number" pattern="[0-9]*" name="buy_price" value =<%= @games.buy_price %> step="0.01" min="0" required/>
+  <br>
+
+  <label for="sell_price">Sell Price:</label>
+  <input id="sell_price" type="number" pattern="[0-9]*" name="sell_price" value =<%= @games.sell_price%> step="0.01" min="0" required/>
+  <br>
+
+  <label for="stock">Stock:</label>
+  <input id="stock" type="number" name="stock" value =<%= @games.stock %> min="0" required/>
+  <br>
+
+  <label for="logo">Logo Url:</label>
+  <input id="logo" type="text" name="logo" value= "<%= @games.logo %>"/>
+  <br>
+  <br>
+  
+  <input type='submit' value="Update Game"/>
+</form>

@@ -10,12 +10,14 @@ Publisher.delete_all
 
 publisher1 = Publisher.new({
   "name" => "Sony",
-  "trading" => "Yes"
+  "trading" => "Yes",
+  "logo" => ""
   })
 
 publisher2 = Publisher.new({
   "name" => "Activision",
-  "trading" => "Yes"
+  "trading" => "Yes",
+  "logo" => ""
   })
 
 
@@ -28,7 +30,8 @@ game1 = Game.new({
   "buy_price" => "10.50",
   "sell_price" => "25.00",
   "stock" => "5",
-  "publisher_id" => publisher1.id
+  "publisher_id" => publisher1.id,
+  "logo" => ""
   })
 
 game2 = Game.new({
@@ -37,7 +40,8 @@ game2 = Game.new({
   "buy_price" => "20.00",
   "sell_price" => "32.00",
   "stock" => "8",
-  "publisher_id" => publisher2.id
+  "publisher_id" => publisher2.id,
+  "logo" => "",
   })
 
 game1.save

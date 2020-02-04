@@ -3,7 +3,7 @@ require_relative( '../db/sql_runner' )
 class Game
 
   attr_reader :id, :publisher_id
-  attr_accessor :name, :genre, :buy_price, :sell_price, :stock
+  attr_accessor :name, :genre, :buy_price, :sell_price, :stock, :logo
 
   def initialize(options)
     @id = options["id"].to_i if options["id"]
@@ -13,6 +13,7 @@ class Game
     @sell_price = options["sell_price"].to_f
     @stock = options["stock"].to_i
     @publisher_id = options["publisher_id"].to_i
+    @logo = options["logo"]
   end
 
   def save()
@@ -23,14 +24,15 @@ class Game
       buy_price,
       sell_price,
       stock,
-      publisher_id
+      publisher_id,
+      logo
     )
     VALUES
     (
-      $1, $2, $3, $4, $5, $6
+      $1, $2, $3, $4, $5, $6, $7
     )
     RETURNING id"
-    values = [@name, @genre, @buy_price, @sell_price, @stock, @publisher_id]
+    values = [@name, @genre, @buy_price, @sell_price, @stock, @publisher_id, @logo]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
@@ -83,13 +85,14 @@ class Game
       buy_price,
       sell_price,
       stock,
-      publisher_id
+      publisher_id,
+      logo
     ) =
     (
-      $1, $2, $3, $4, $5, $6
+      $1, $2, $3, $4, $5, $6, $7
     )
-    WHERE id = $7"
-    values = [@name, @genre, @buy_price, @sell_price, @stock, @publisher_id, @id]
+    WHERE id = $8"
+    values = [@name, @genre, @buy_price, @sell_price, @stock, @publisher_id, @logo, @id]
     SqlRunner.run( sql, values )
   end
 
