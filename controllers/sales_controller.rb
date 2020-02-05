@@ -1,6 +1,7 @@
 require( 'sinatra' )
 require( 'sinatra/contrib/all' )
 require( 'date' )
+require( 'pry' )
 require_relative('../models/game.rb')
 require_relative('../models/publisher.rb')
 require_relative('../models/sale.rb')
@@ -18,12 +19,21 @@ get '/sales/new' do
 end
 
 post '/sales' do
-  sale = Sale.new(params)
-  sale.save
-  game = sale.game
-  game.stock -= 1
-  game.update
-  redirect to ('/sales')
+  game = Game.find(params[:game_id])
+  if game.stock.to_i >= params[:amount].to_i
+    sale = Sale.new(params)
+    sale.save
+    game = sale.game
+    game.stock -= params[:amount].to_i
+    game.update
+    redirect to ('/sales')
+  else
+    redirect to ('/sales/insufficient')
+  end
+end
+
+get '/sales/insufficient' do
+  erb(:"sales/insufficient")
 end
 
 post '/sales/:id/delete' do
@@ -42,7 +52,6 @@ get '/sales/:id/update' do
 end
 
 post '/sales/:id' do
-
   sale = Sale.new(params)
   sale.update
   redirect to('/sales')

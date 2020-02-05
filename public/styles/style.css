@@ -1,9 +1,6 @@
-h1 {
-  font-family: 'Bungee Inline', cursive;
-}
 
 nav {
-  background: blue;
+  background: #3F88C5;
   border-right: solid black;
   border-left: solid black;
   height: 100%;
@@ -18,7 +15,7 @@ nav {
 nav li {
   text-align: center;
   display: inline;
-  font-family: 'Bungee Inline', cursive;
+  font-size: 20px;
 }
 
 nav li a {
@@ -27,82 +24,13 @@ nav li a {
   width: 100%;
   text-decoration: none;
   color: white;
-  padding-right: 105px;
+  padding-right: 135px;
   padding-left: 1px;
   text-align: left;
-
 }
 
 nav li a:hover{
-  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5)
-}
-
-#company_logo{
-  top: 0;
-  left: 0;
-  z-index: 2;
-  display: flex;
-  position: fixed;
-  height: 25%;
-  width: 18%;
-  border: black solid 2px;
-}
-
-#content {
-  float: left;
-  width: 82.3%;
-  padding-left: 255px;
-  padding-top: 35px;
-}
-
-table {
-  text-align: center;
-}
-
-table, th, td {
-  border: 1px solid black;
-  font-size: 20px;
-  padding: 5px;
-}
-
-.filter {
-  background-color: lightgray;
-}
-
-input, select {
-  display: block;
-  text-align: center;
-}
-
-
-#form_inline{
-  display: flex;
-  justify-content: center;
-}
-
-#form_inventory{
-  display: inline-flex;
-}
-
-#warning{
-  background-color: red;
-  color: white;
-}
-
-#lowstock{
-  background-color: coral;
-  color: white;
-}
-
-.image_resize {
-  z-index: 2;
-  float: left;
-  display: block;
-  width:  200px;
-  height: 200px;
-  background-size: cover;
-  border-bottom: 1px black solid;
-  border-right: 1px black solid;
+  text-shadow: 3px 3px #ff0000;
 }
 
 form {
@@ -117,84 +45,90 @@ form select{
   font-size: 14px;
 }
 
-h1 {
-  text-decoration: underline;
-  text-decoration-style: double;
+table {
+  text-align: center;
+}
+
+table, th, td {
+  border: 1px solid black;
+  font-size: 20px;
+  padding: 5px;
+}
+
+input, select {
+  display: block;
+  text-align: center;
+}
+
+#company_logo{
+  top: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  position: fixed;
+  height: 25%;
+  width: 18.1%;
+  border: black solid 2px;
+}
+
+#content {
+  float: left;
+  width: 82.3%;
+  padding-left: 255px;
+  padding-top: 35px;
+  font-family: 'Karla', sans-serif;
+}
+
+#form_inline{
+  display: flex;
+  justify-content: center;
 }
 
 #form_inventory{
+  display: inline-flex;
   padding-left: 10px;
 }
 
-.container{
-  display: flex;
-  flex-flow: row wrap;
-  width: 100%;
-  border: solid black;
-}
-
-.container_inside{
-  display: block;
-  align-content: center;
-  padding-left: 10px;
-  border-right: solid black 1px;
-  border-bottom: solid  black 1px;
-  width: 31.91%;
-  padding-bottom: 10px;
-  font-size: 16px;
-}
-
-.btn_add {
-  padding: 5px;
-  background: blue;
+#warning{
+  background-color: red;
   color: white;
-  text-decoration: double underline;
-  border-radius: 20px;
-  font-family: 'Bungee Inline', cursive;
-  text-align: center;
-  padding-top: 25px;
-  padding-right: 10px;
-  font-size: 20px;
 }
 
-.btn_add_form{
-  border: none;
-  padding: none;
-  background: blue;
+#lowstock{
+  background-color: coral;
   color: white;
-  text-decoration: double underline;
-  font-family: 'Bungee Inline', cursive;
-  text-align: center;
-  top: 0;
-  font-size: 20px;
-}
-
-.btn_add_form_filter{
-  border: none;
-  padding: none;
-  background: blue;
-  color: white;
-  text-decoration: double underline;
-  font-family: 'Bungee Inline', cursive;
-  text-align: center;
-  top: 0;
-  padding-top: 25px;
-  font-size: 20px;
 }
 
 #stock_check{
   display: block;
-  flex-flow: row wrap;
-  justify-content: center;
   padding-bottom: 20px;
-  padding-top: 30px;
+  padding-top: 50px;
   text-align: center;
 }
 
 #center_table {
+  display: inline-block;
+  justify-content: center;
+  flex-flow: wrap;
+}
+
+#insufficient{
+  padding-left: 20px;
+  padding-top: 40px;
+  font-size: 20px;
+}
+
+#orange {
+  background: coral;
+}
+
+#red {
+  background: red;
+}
+
+#key {
   display: flex;
   justify-content: center;
-  background: white;
 }
 
 .header{
@@ -204,9 +138,11 @@ h1 {
   position: fixed;
   z-index: 100;
   width: 81.01%;
-  background: blue;
+  background: #3F88C5;
   top: 0;
-  border: black 5px solid;
+  border: black 2px solid;
+  padding-bottom: 10px;
+  padding-right: 6px;
 }
 
 .header_text{
@@ -221,6 +157,8 @@ h1 {
 .game_button_inline{
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding-top: 10px;
 }
 
 .internal_form{
@@ -233,4 +171,86 @@ h1 {
   align-self: center;
   height: 50%;
   font-size: 15px;
+}
+
+.container{
+  display: flex;
+  flex-flow: row wrap;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 97.4%;
+  padding-top: 10px;
+}
+
+.container_inside{
+  display: block;
+  align-content: center;
+  align-self: center;
+  width: 31.91%;
+  padding-bottom: 10px;
+  font-size: 16px;
+  padding-left: 20px;
+  padding-right: 10px;
+}
+
+.btn_add {
+  padding: 5px;
+  background: none;
+  color: white;
+  text-decoration: none;
+  border-radius: 20px;
+  text-align: center;
+  padding-top: 25px;
+  padding-right: 30px;
+  font-size: 20px;
+}
+.btn_add:hover{
+  text-shadow: 3px 3px #ff0000;
+}
+
+.btn_add_form{
+  border: none;
+  background: none;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  top: 0;
+  font-size: 20px;
+  padding-right: 30px;
+}
+
+.btn_add_form:hover{
+  text-shadow: 3px 3px #ff0000;
+}
+
+.btn_add_form_filter{
+  border: none;
+  background: none;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  top: 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 20px;
+  padding-right: 30px;
+}
+
+.btn_add_form_filter:hover{
+  text-shadow: 3px 3px #ff0000;
+}
+
+.image_resize {
+  z-index: 2;
+  float: left;
+  display: block;
+  width:  175px;
+  height: 175px;
+  background-size: cover;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.filter {
+  background-color: lightgray;
 }

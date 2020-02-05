@@ -1,9 +1,9 @@
 <div class="header">
-<h1 class="header_text">Inventory Filtered by: <%=@filter%></h1>
+  <h1 class="header_text">Inventory Filtered by: <%=@filter%></h1>
 
-<form method="get" action="/inventory">
-  <input class = "btn_add_form_filter" type='submit' value="Clear Filter"/>
-</form>
+  <form method="get" action="/inventory">
+    <input class = "btn_add_form_filter" type='submit' value="Clear Filter"/>
+  </form>
 </div>
 
 <br>
@@ -23,12 +23,23 @@
   <tr>
     <td><%= game.name%> </td>
     <td><%= game.genre%></td>
+    <% if game.publisher_id != 0%>
     <td><%= game.publisher.name%></td>
-    <td><%= game.stock%> </td>
+    <% else %>
+    <td>Publisher Not In System</td>
+    <% end %>
+    <% if game.stock == 0%>
+    <td id ="warning"><%= game.stock%> </td>
+    <% elsif game.stock <= 5 %>
+    <td id ="lowstock"><%= game.stock%> </td>
+    <% else %>
+    <td><%=game.stock%></td>
+    <% end %>
     <td><%= game.buy_price %></td>
     <td><%= game.sell_price %></td>
     <td><%= ((game.buy_price.to_f / game.sell_price.to_f)*100).round(2) %>%</td>
   </tr>
+
   <% end %>
   <% end %>
 

@@ -7,9 +7,9 @@ class Publisher
 
   def initialize(options)
     @id = options["id"].to_i if options["id"]
-    @name = options["name"]
-    @trading = options["trading"]
-    @logo = options["logo"]
+    @name = options["name"] if options["name"]
+    @trading = options["trading"] if options["trading"]
+    @logo = options["logo"] if options["logo"]
   end
 
   def save()
@@ -30,10 +30,10 @@ class Publisher
   end
 
   def self.all()
-  sql = "SELECT * FROM publishers"
-  results = SqlRunner.run( sql )
-  return results.map { |publisher| Publisher.new( publisher ) }
-end
+    sql = "SELECT * FROM publishers"
+    results = SqlRunner.run( sql )
+    return results.map { |publisher| Publisher.new( publisher ) }
+  end
 
   def self.delete_all()
     sql = "DELETE FROM publishers"
@@ -62,27 +62,27 @@ end
   end
 
   def self.find( id )
-  sql = "SELECT * FROM publishers
-  WHERE id = $1"
-  values = [id]
-  results = SqlRunner.run( sql, values )
-  return Publisher.new( results.first )
-end
+    sql = "SELECT * FROM publishers
+    WHERE id = $1"
+    values = [id]
+    results = SqlRunner.run( sql, values )
+    return Publisher.new( results.first )
+  end
 
-def update()
-  sql = "UPDATE publishers
-  SET
-  (
-    name,
-    trading,
-    logo
-  ) =
-  (
-    $1, $2, $3
-  )
-  WHERE id = $4"
-  values = [@name, @trading, @logo, @id]
-  SqlRunner.run( sql, values )
-end
+  def update()
+    sql = "UPDATE publishers
+    SET
+    (
+      name,
+      trading,
+      logo
+      ) =
+      (
+        $1, $2, $3
+      )
+      WHERE id = $4"
+      values = [@name, @trading, @logo, @id]
+      SqlRunner.run( sql, values )
+    end
 
-end
+  end

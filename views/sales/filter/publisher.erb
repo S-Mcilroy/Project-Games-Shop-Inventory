@@ -1,9 +1,9 @@
 <div class="header">
-<h1 class="header_text">Sales Filtered by: <%=@filter.name%></h1>
+  <h1 class="header_text">Sales Filtered by: <%=@filter.name%></h1>
 
-<form method="get" action="/sales">
-  <input class ="btn_add_form_filter" type='submit' value="Clear Filter"/>
-</form>
+  <form method="get" action="/sales">
+    <input class ="btn_add_form_filter" type='submit' value="Clear Filter"/>
+  </form>
 </div>
 
 <br>
@@ -14,7 +14,9 @@
     <th>Genre</th>
     <th class = "filter">Publisher</th>
     <th>Transaction Date</th>
-    <th>Price</th>
+    <th>Price per Unit</th>
+    <th>Amount</th>
+    <th>Total Sale</th>
     <th>Action</th>
   </tr>
 
@@ -27,6 +29,8 @@
     <td><%= game.publisher.name %></td>
     <td><%= sale.transaction_date%> </td>
     <td><%= game.sell_price%> </td>
+    <td><%= sale.amount %></td>
+    <td><%= sale.amount.to_f * game.sell_price.to_f%></td>
     <td id = "form_inline"><form method="post" action="/sales/<%= sale.id%>/delete">
       <input type='submit' value="Delete"/>
     </form>

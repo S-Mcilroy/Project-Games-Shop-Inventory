@@ -1,30 +1,42 @@
 <div class="header">
-<h1 class="header_text">Home Page</h1>
+  <h1 class="header_text">Home</h1>
 </div>
 
 <div id="stock_check">
-<h1 id = "center_text">Items Low Stock/Out of Stock</h1>
+  <h1 id = "center_text">Items Low Stock/Out of Stock</h1>
 
-<div id = "center_table">
+  <div id = "center_table">
 
-<table >
-  <tr>
-    <th>Game</th>
-    <th>Stock Level</th>
-  </tr>
-  <% for game in @games %>
-  <% if game.stock == 0%>
-  <tr>
-    <td><%= game.name%></td>
-    <td id ="warning"><%= game.stock%> </td>
-  </tr>
-  <% elsif game.stock <= 5 %>
-  <tr>
-    <td><%= game.name%></td>
-    <td id ="lowstock"><%= game.stock%> </td>
-  </tr>
-  <% end %>
-  <% end %>
-</table>
-</div>
+    <table >
+      <tr>
+        <th>Game</th>
+        <th>Stock Level</th>
+      </tr>
+      <% for game in @games %>
+      <% if game.stock == 0%>
+      <tr>
+        <td><%= game.name%></td>
+        <td id ="warning"><%= game.stock%> </td>
+      </tr>
+      <% elsif game.stock <= 5 %>
+      <tr>
+        <td><%= game.name%></td>
+        <td id ="lowstock"><%= game.stock%> </td>
+      </tr>
+      <% end %>
+      <% end %>
+    </table>
+
+    <div id="key">
+      <table>
+        <tr>
+          <th>Key:</th>
+          <th>Stock: OK</th>
+          <th id = "orange" >Stock: LOW</th>
+          <th id = "red" >Stock: ZERO</th>
+        </tr>
+      </table>
+    </div>
+
+  </div>
 </div>

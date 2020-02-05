@@ -1,17 +1,21 @@
 <div class="header">
-<h1 class="header_text">Add Sale</h1>
+  <h1 class="header_text">Add Sale</h1>
 </div>
 
-  <form class="internal_form" method="post" action="/sales">
-    <label for="transaction_date">Transaction Date:</label>
-    <input id="transaction_date" type="date" name="transaction_date" max = <%= Date.today %> required/>
+<form class="internal_form" method="post" action="/sales">
+  <label for="transaction_date">Transaction Date:</label>
+  <input id="transaction_date" type="date" name="transaction_date" max = <%= Date.today %> required/>
 
-    <label for="game">Select a Game:</label>
-    <select id="game_id" name="game_id" required>
+  <label for="game">Select a Game:</label>
+  <select id="game_id" name="game_id" required>
     <% @games.each do |game| %>
-      <option value = <%= game.id %> > <%= game.name %> </option>
-      <% end %>
-    </select>
-    <br>
-    <input type='submit' value="Add Sale"/>
-  </form>
+    <option value = <%= game.id %> > <%= game.name %> </option>
+    <% end %>
+  </select>
+
+  <label for="amount">Amount:</label>
+  <input type="number" name="amount" min="0" required/>
+
+  <br>
+  <input type='submit' value="Add Sale"/>
+</form>

@@ -55,6 +55,9 @@ class Game
   end
 
   def publisher()
+    if @publisher_id == 0
+      return Publisher.new({"name" => 'nil', "trading" => 'nil', "logo" => 'nil'})
+    end
     sql = "SELECT publishers.* FROM publishers WHERE id = $1"
     values = [@publisher_id]
     result = SqlRunner.run(sql, values)
@@ -87,13 +90,13 @@ class Game
       stock,
       publisher_id,
       logo
-    ) =
-    (
-      $1, $2, $3, $4, $5, $6, $7
-    )
-    WHERE id = $8"
-    values = [@name, @genre, @buy_price, @sell_price, @stock, @publisher_id, @logo, @id]
-    SqlRunner.run( sql, values )
-  end
+      ) =
+      (
+        $1, $2, $3, $4, $5, $6, $7
+      )
+      WHERE id = $8"
+      values = [@name, @genre, @buy_price, @sell_price, @stock, @publisher_id, @logo, @id]
+      SqlRunner.run( sql, values )
+    end
 
-end
+  end

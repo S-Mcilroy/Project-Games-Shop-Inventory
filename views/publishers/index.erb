@@ -16,14 +16,17 @@
     <p>Name: <%= publisher.name() %></p>
     <p>Trading: <%= publisher.trading %></p>
 
-<div class="game_button_inline">
-    <form method="post" action="/publishers/<%= publisher.id%>/delete">
-      <input type='submit' value="Delete Publisher"/>
-    </form>
+    <div class="game_button_inline">
 
-    <form method="get" action="/publishers/<%= publisher.id %>/update">
-      <input type='submit' value='Update Publisher'/>
-    </form>
+      <form method="get" action="/publishers/<%= publisher.id %>/update">
+        <input type='submit' value='Update Publisher'/>
+      </form>
+
+      <form method="post" action="/publishers/<%= publisher.id%>/delete">
+        <input type='submit' value="Delete Publisher"/>
+      </form>
+
+
     </div>
   </div>
 

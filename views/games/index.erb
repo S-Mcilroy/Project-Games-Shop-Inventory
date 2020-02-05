@@ -15,7 +15,11 @@
 
     <p>Name: <%= game.name() %></p>
     <p>Genre: <%= game.genre %></p>
+    <% if game.publisher_id != 0%>
     <p>Publisher: <%= game.publisher.name %></p>
+    <% else %>
+    <p>Publisher: No Longer In System</p>
+    <% end %>
     <% if game.stock == 0%>
     <p id ="warning">Stock: <%= game.stock%> </p>
     <% elsif game.stock <= 5 %>
@@ -25,13 +29,16 @@
     <% end %>
 
     <div class="game_button_inline">
-      <form method="post" action="/games/<%= game.id%>/delete">
-        <input type='submit' value="Delete Game"/>
-      </form>
 
       <form method="get" action="/games/<%= game.id %>/update">
         <input type='submit' value='Update Game'/>
       </form>
+
+      <form method="post" action="/games/<%= game.id%>/delete">
+        <input type='submit' value="Delete Game"/>
+      </form>
+
+
     </div>
   </div>
 

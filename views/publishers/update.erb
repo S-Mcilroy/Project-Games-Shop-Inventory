@@ -1,23 +1,23 @@
 <div class="header">
-<h1 class="header_text">Update Publisher</h1>
+  <h1 class="header_text">Update Publisher</h1>
 </div>
 
-  <form class="internal_form" method="post" action="/publishers/<%=@publisher.id%>">
-    <label for="name">Name:</label>
-    <input id="name" type="text" name="name" value="<%=@publisher.name%>" required/>
-    <br>
+<form class="internal_form" method="post" action="/publishers/<%=@publisher.id%>">
+  <label for="name">Name:</label>
+  <input id="name" type="text" name="name" value="<%=@publisher.name%>" required/>
+  <br>
 
-    <label for="trading">Trading:</label>
-    <select id="trading" name="trading" required>
-      <option <%= "selected" if @publisher.trading == "Yes" %> value = "Yes">Yes</option>
-      <option <%= "selected" if @publisher.trading == "No" %> value = "No">No</option>
-    </select>
-    <br>
+  <label for="trading">Trading:</label>
+  <select id="trading" name="trading" required>
+    <option <%= "selected" if @publisher.trading == "Yes" %> value = "Yes">Yes</option>
+    <option <%= "selected" if @publisher.trading == "No" %> value = "No">No</option>
+  </select>
+  <br>
 
-    <label for="logo">Logo Url:</label>
-    <input id="logo" type="text" name="logo" value = "<%= @publisher.logo %>" />
-    <br>
-    <br>
+  <label for="logo">Logo Url:</label>
+  <input id="logo" type="text" name="logo" value = "<%= @publisher.logo %>" />
+  <br>
+  <br>
 
-    <input type='submit' value="Update Publisher"/>
-  </form>
+  <input type='submit' value="Update Publisher"/>
+</form>
